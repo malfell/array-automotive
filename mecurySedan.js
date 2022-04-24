@@ -15,9 +15,59 @@ class Car extends VehicleModule {
     this.fuel = 10;
     this.scheduleService = false;
   }
+  //methods
+
+  //Load Passenger(num): 
+  //if passenger less than maximumPassengers then 
+  //availableRoom == true
+
+  loadPassenger(num){
+      //check the current number of passengers
+      //and compare with the max passengers allowed
+    if(this.passenger < this.maximumPassengers){
+        //if current passengers is lower, then check
+        //the number of passengers to be loaded.
+        //If the number is still smaller than max passengers,
+        //there is room available
+        if((num + this.passenger) <= this.maximumPassengers){
+            return this.passenger
+        } else {
+        console.log('Not enough room!')
+    } 
+    } else {
+        console.log('This vehicle is already full.')
+    }
+  }
+
+  //Start:
+  //if fuel is greater than 0, then start == true
+  start(){
+    if(this.fuel > 0){
+        console.log('Starting!')
+        //this.started is a property in the vehicle class,
+        //so it carries over
+        return this.started = true
+    } else {
+        console.log('Car needs fuel!')
+        return this.started = false
+    }
+  }
+
+  //Schedule Service(mileage)
+  //if mileage is greater than 30000, time for maintenance == true
+  scheduleService(mileage){
+    if(this.mileage > 30000){
+        return this.scheduleService = true
+    } //only runs if the mileage is too high
+  }
+
+
 }
 
 //this shows how to call from this module...
-let v = new VehicleModule.Vehicle("Mecury", "Sedan", "1965", "color", "mileage");
-console.log(v.make)
+let newCar = new VehicleModule.Vehicle("Mecury", "Sedan", "1965", "blue", "15000");
+console.log(newCar.make)
 
+newCar.loadPassenger(2)
+newCar.start()
+newCar.scheduleService(15000)
