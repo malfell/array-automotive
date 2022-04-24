@@ -1,5 +1,15 @@
 //this includes the vehicle class as a module
 //Imports vehicle.js and the Vehicle class
+
+//I am confused because the following line here 
+//and Line 89 on vehicle.js
+//are throwing errors, but this is what the solution code has.
+//I compared the rest of my code with the solution code, and it 
+//seems to match up?
+
+//I tested this by making a copy of the solution code, and 
+//the solution code was throwing the same errors too.
+//I don't know if my PC is being the issue.
 const VehicleModule = require("./vehicle").Vehicle
 
 class Car extends VehicleModule {
